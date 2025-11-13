@@ -5350,6 +5350,50 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 7812792157996339142, guid: 696f24c237ab1d14e9ce234525de750f, type: 3}
   m_PrefabInstance: {fileID: 1156478329}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &835565502 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 433158138742015644, guid: fb4104257e9f84841a3c5f59826f99b0, type: 3}
+  m_PrefabInstance: {fileID: 5649339563537523924}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &835565506
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 835565502}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b5ead72a464f4704a963b2698573b075, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::TowerShooter
+  range: 5
+  fireRate: 1
+  firePoint: {fileID: 1229939656}
+  bulletPrefab: {fileID: 2067819216198474479, guid: 63ccf21809f58164ea501a982d2e9ca4, type: 3}
+  bulletDamage: 20
+  bulletSpeed: 8
+--- !u!135 &835565507
+SphereCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 835565502}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 1
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Radius: 5
+  m_Center: {x: 0, y: 0.114999995, z: 0}
 --- !u!1001 &836430247
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -7622,6 +7666,11 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 7812792157996339142, guid: 696f24c237ab1d14e9ce234525de750f, type: 3}
   m_PrefabInstance: {fileID: 370723241}
   m_PrefabAsset: {fileID: 0}
+--- !u!4 &1229939656 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 7928091475222468842, guid: fb4104257e9f84841a3c5f59826f99b0, type: 3}
+  m_PrefabInstance: {fileID: 5649339563537523924}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1232811990
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -8213,7 +8262,7 @@ MonoBehaviour:
   monsters:
   - {fileID: 7268977452143306438, guid: 3983467f9bef4f5488bd2e72198e2a22, type: 3}
   - {fileID: 7258953348799213911, guid: a432045694da85842b368dc476a3078b, type: 3}
-  spawnRate: 2
+  spawnRate: 5
   castle: {fileID: 6016733336195905282}
 --- !u!4 &1270659924 stripped
 Transform:
@@ -10992,33 +11041,6 @@ Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 23f3c193a2218a74ca7c2e3b25ecde7d, type: 3}
   m_PrefabInstance: {fileID: 877339950}
   m_PrefabAsset: {fileID: 0}
---- !u!1 &1692269365 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 8399841931782817238, guid: fb4104257e9f84841a3c5f59826f99b0, type: 3}
-  m_PrefabInstance: {fileID: 5649339563537523924}
-  m_PrefabAsset: {fileID: 0}
---- !u!95 &1692269366
-Animator:
-  serializedVersion: 7
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1692269365}
-  m_Enabled: 1
-  m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 7927bb3d34800bc4a822a87fc1762591, type: 2}
-  m_CullingMode: 0
-  m_UpdateMode: 0
-  m_ApplyRootMotion: 0
-  m_LinearVelocityBlending: 0
-  m_StabilizeFeet: 0
-  m_AnimatePhysics: 0
-  m_WarningMessage: 
-  m_HasTransformHierarchy: 1
-  m_AllowConstantClipSamplingOptimization: 1
-  m_KeepAnimatorStateOnDisable: 0
-  m_WriteDefaultValuesOnDisable: 0
 --- !u!1001 &1731696485
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -13697,6 +13719,30 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 635416804247637812, guid: fb4104257e9f84841a3c5f59826f99b0, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 635416804247637812, guid: fb4104257e9f84841a3c5f59826f99b0, type: 3}
+      propertyPath: bulletPrefab
+      value: 
+      objectReference: {fileID: 2067819216198474479, guid: 63ccf21809f58164ea501a982d2e9ca4, type: 3}
+    - target: {fileID: 1367404130270081428, guid: fb4104257e9f84841a3c5f59826f99b0, type: 3}
+      propertyPath: m_Radius
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 6675887890200202234, guid: fb4104257e9f84841a3c5f59826f99b0, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 1.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 6675887890200202234, guid: fb4104257e9f84841a3c5f59826f99b0, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 1.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 6675887890200202234, guid: fb4104257e9f84841a3c5f59826f99b0, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 1.5
+      objectReference: {fileID: 0}
     - target: {fileID: 6675887890200202234, guid: fb4104257e9f84841a3c5f59826f99b0, type: 3}
       propertyPath: m_LocalPosition.x
       value: 5.5
@@ -13707,7 +13753,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6675887890200202234, guid: fb4104257e9f84841a3c5f59826f99b0, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -1
+      value: -0.9
       objectReference: {fileID: 0}
     - target: {fileID: 6675887890200202234, guid: fb4104257e9f84841a3c5f59826f99b0, type: 3}
       propertyPath: m_LocalRotation.w
@@ -13741,13 +13787,17 @@ PrefabInstance:
       propertyPath: m_Name
       value: Turret Tower
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 635416804247637812, guid: fb4104257e9f84841a3c5f59826f99b0, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents:
-    - targetCorrespondingSourceObject: {fileID: 8399841931782817238, guid: fb4104257e9f84841a3c5f59826f99b0, type: 3}
+    - targetCorrespondingSourceObject: {fileID: 433158138742015644, guid: fb4104257e9f84841a3c5f59826f99b0, type: 3}
       insertIndex: -1
-      addedObject: {fileID: 1692269366}
+      addedObject: {fileID: 835565507}
+    - targetCorrespondingSourceObject: {fileID: 433158138742015644, guid: fb4104257e9f84841a3c5f59826f99b0, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 835565506}
   m_SourcePrefab: {fileID: 100100000, guid: fb4104257e9f84841a3c5f59826f99b0, type: 3}
 --- !u!1001 &6016733336195905279
 PrefabInstance:
