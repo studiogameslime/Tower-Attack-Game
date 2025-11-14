@@ -1,9 +1,11 @@
 using UnityEngine;
+using UnityEngine.AI;
 
 public class MonsterMove : MonoBehaviour
 {
     MonsterStats _stats;
-
+    public Transform target;
+    private NavMeshAgent agent;
 
     private void Awake()
     {
@@ -13,14 +15,15 @@ public class MonsterMove : MonoBehaviour
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-
+        agent = GetComponent<NavMeshAgent>();
+        agent.SetDestination(target.position);
     }
 
     // Update is called once per frame
     void Update()
     {
 
-        transform.position = transform.position + (Vector3.left * _stats.speed) * Time.deltaTime;
+ 
 
     }
 }

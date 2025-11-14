@@ -8,6 +8,7 @@ public class MonstersSpawner : MonoBehaviour
     private float timer = 0;
     public CastleDoorsAnimations castle;
 
+    public Transform targetTower;   // monsters target destination
     public GameObject GetRandomMonster()
     {
         return monsters[Random.Range(0,monsters.Length)];
@@ -23,9 +24,11 @@ public class MonstersSpawner : MonoBehaviour
         }
         else
         {
-            Instantiate(GetRandomMonster(), transform.position, transform.rotation);
-            timer = 0;
+            GameObject newMonster = Instantiate(GetRandomMonster(), transform.position, transform.rotation);
             castle.OpenDoors();
+            newMonster.GetComponent<MonsterMove>().target = targetTower;
+            timer = 0;
+            
         }
 
     }
