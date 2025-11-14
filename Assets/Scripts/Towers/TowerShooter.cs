@@ -32,22 +32,8 @@ public class TowerShooter : MonoBehaviour
         // Ensure we have a SphereCollider and configure it as a trigger
         sphereCollider = GetComponent<SphereCollider>();
         sphereCollider.isTrigger = true;
-        sphereCollider.radius = range; // Set collider radius to match tower range
     }
 
-#if UNITY_EDITOR
-    // This will run in the editor whenever a value is changed in the inspector
-    private void OnValidate()
-    {
-        // Keep collider radius and trigger settings in sync while editing
-        SphereCollider col = GetComponent<SphereCollider>();
-        if (col != null)
-        {
-            col.isTrigger = true;
-            col.radius = range;
-        }
-    }
-#endif
 
     private void Update()
     {

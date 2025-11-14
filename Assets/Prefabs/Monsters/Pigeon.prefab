@@ -144,7 +144,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::EnemyStats
   _maxHealth: 100
   _currenthealth: 0
-  speed: 1
+  speed: 3
 --- !u!65 &8052595972698084360
 BoxCollider:
   m_ObjectHideFlags: 0

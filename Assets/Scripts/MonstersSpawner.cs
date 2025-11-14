@@ -8,12 +8,6 @@ public class MonstersSpawner : MonoBehaviour
     private float timer = 0;
     public CastleDoorsAnimations castle;
 
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
-    {
-        
-    }
-
     public GameObject GetRandomMonster()
     {
         return monsters[Random.Range(0,monsters.Length)];
