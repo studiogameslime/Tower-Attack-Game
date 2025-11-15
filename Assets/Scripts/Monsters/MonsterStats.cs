@@ -5,5 +5,6 @@ public class MonsterStats : MonoBehaviour
     public float _maxHealth;
     public float _currenthealth;
     public float speed;
+    public int coinReward;
 
 }

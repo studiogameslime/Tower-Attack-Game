@@ -42,6 +42,7 @@ public class MonsterHealth : MonoBehaviour
         canTargeted = false;
         agent.speed = 0;
         animator.SetTrigger("Die");
+        InGameCoinsManager.instance.AddCoins(_stats.coinReward);
         yield return new WaitForSeconds(2f);
         Die();
     }
