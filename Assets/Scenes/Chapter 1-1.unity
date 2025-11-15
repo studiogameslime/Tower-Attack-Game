@@ -4620,11 +4620,6 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 696f24c237ab1d14e9ce234525de750f, type: 3}
---- !u!4 &668242826 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 7908110637508068515, guid: b90268abc46e8a446908b606e676041f, type: 3}
-  m_PrefabInstance: {fileID: 1352276589398736705}
-  m_PrefabAsset: {fileID: 0}
 --- !u!4 &668658580 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 23f3c193a2218a74ca7c2e3b25ecde7d, type: 3}
@@ -15329,11 +15324,6 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 851819299359992111, guid: b90268abc46e8a446908b606e676041f, type: 3}
   m_PrefabInstance: {fileID: 1352276589398736705}
   m_PrefabAsset: {fileID: 0}
---- !u!95 &1098498785331309248 stripped
-Animator:
-  m_CorrespondingSourceObject: {fileID: 1297321006743614203, guid: b90268abc46e8a446908b606e676041f, type: 3}
-  m_PrefabInstance: {fileID: 1352276589398736705}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1352276589398736705
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -15382,30 +15372,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 2664883094158156485, guid: b90268abc46e8a446908b606e676041f, type: 3}
-      propertyPath: fireRate
-      value: 0.25
-      objectReference: {fileID: 0}
-    - target: {fileID: 2664883094158156485, guid: b90268abc46e8a446908b606e676041f, type: 3}
-      propertyPath: firePoint
-      value: 
-      objectReference: {fileID: 668242826}
-    - target: {fileID: 2664883094158156485, guid: b90268abc46e8a446908b606e676041f, type: 3}
-      propertyPath: maxDamage
-      value: 60
-      objectReference: {fileID: 0}
-    - target: {fileID: 2664883094158156485, guid: b90268abc46e8a446908b606e676041f, type: 3}
-      propertyPath: minDamage
-      value: 45
-      objectReference: {fileID: 0}
     - target: {fileID: 3792915319797179731, guid: b90268abc46e8a446908b606e676041f, type: 3}
       propertyPath: m_Name
       value: Artillery Tower
       objectReference: {fileID: 0}
-    - target: {fileID: 7777884392265228802, guid: b90268abc46e8a446908b606e676041f, type: 3}
-      propertyPath: animator
-      value: 
-      objectReference: {fileID: 1098498785331309248}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -15433,7 +15403,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6675887890200202234, guid: fb4104257e9f84841a3c5f59826f99b0, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -0.9
+      value: -2.5
       objectReference: {fileID: 0}
     - target: {fileID: 6675887890200202234, guid: fb4104257e9f84841a3c5f59826f99b0, type: 3}
       propertyPath: m_LocalRotation.w
@@ -15469,7 +15439,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8399841931782817238, guid: fb4104257e9f84841a3c5f59826f99b0, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

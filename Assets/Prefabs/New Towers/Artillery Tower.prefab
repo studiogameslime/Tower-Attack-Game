@@ -288,10 +288,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::TowerStats
   range: 5
-  fireRate: 1
-  firePoint: {fileID: 0}
-  minDamage: 8
-  maxDamage: 20
+  fireRate: 0.25
+  firePoint: {fileID: 7908110637508068515}
+  minDamage: 45
+  maxDamage: 60
   hp: 100
   bulletSpeed: 20
 --- !u!114 &7777884392265228802
@@ -308,6 +308,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::ArtilleryTower
   enemiesInRange: []
   _stats: {fileID: 2664883094158156485}
+  animator: {fileID: 1297321006743614203}
   bulletPrefab: {fileID: 2067819216198474479, guid: 63ccf21809f58164ea501a982d2e9ca4, type: 3}
   splashRadius: 2.5
   arcHeight: 3
