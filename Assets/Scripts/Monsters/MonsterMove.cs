@@ -17,13 +17,14 @@ public class MonsterMove : MonoBehaviour
     {
         agent = GetComponent<NavMeshAgent>();
         agent.SetDestination(target.position);
+        agent.speed = _stats.speed;
     }
 
     // Update is called once per frame
     void Update()
     {
 
- 
+
 
     }
 }

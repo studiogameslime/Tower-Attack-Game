@@ -60,32 +60,6 @@ public class TurretTower : Tower
         }
     }
 
-    // Returns the closest enemy currently in range
-    private MonsterHealth GetClosestEnemy()
-    {
-        MonsterHealth closest = null;                        // The closest enemy found so far
-        float closestDist = Mathf.Infinity;          // Start with a very large distance
-        Vector3 currentPos = transform.position;     // Position of the tower
-
-        // Loop over all enemies within range
-        foreach (MonsterHealth e in enemiesInRange)
-        {
-            if (e == null) continue; // Skip null references
-
-            // Use squared magnitude for performance (no sqrt needed)
-            float dist = (e.transform.position - currentPos).sqrMagnitude;
-
-            // If this enemy is closer than the current closest, update
-            if (dist < closestDist)
-            {
-                closestDist = dist;
-                closest = e;
-            }
-        }
-
-        return closest; // Might be null if no enemies exist
-    }
-
     // Instantiate a bullet and initialize it with target, damage, and speed
     private void Shoot(MonsterHealth target)
     {
