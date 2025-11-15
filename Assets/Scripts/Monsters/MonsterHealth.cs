@@ -12,7 +12,7 @@ public class MonsterHealth : MonoBehaviour
     }
 
     // Public method to deal damage to this monster
-    public void TakeDamage(float amount)
+    public void TakeDamage(int amount)
     {
         _stats._currenthealth -= amount; // Reduce health by damage amount
         

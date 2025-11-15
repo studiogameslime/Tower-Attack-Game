@@ -6,20 +6,12 @@ using UnityEngine;
 // - Selecting a target (e.g. closest enemy)
 // - Shooting bullets toward that target
 [RequireComponent(typeof(SphereCollider))]
-public class TowerShooter : MonoBehaviour
+public class TurretTower : Tower
 {
-    [Header("Tower Settings")]
-    [SerializeField] private float range = 5f;       // Detection radius of the tower
-    [SerializeField] private float fireRate = 1f;    // How many shots per second
-    [SerializeField] private Transform firePoint;    // Transform from which bullets are instantiated
-
     [Header("Bullet")]
     [SerializeField] private GameObject bulletPrefab; // Prefab of the bullet to instantiate
-    [SerializeField] private float bulletDamage = 20f; // Damage each bullet deals
-    [SerializeField] private float bulletSpeed = 8f;   // Movement speed of the bullet
 
     // List of enemies currently inside the tower's range
-    private List<MonsterHealth> enemiesInRange = new List<MonsterHealth>();
 
     // Timer to control the time between shots
     private float fireCooldown = 0f;
@@ -32,6 +24,7 @@ public class TowerShooter : MonoBehaviour
         // Ensure we have a SphereCollider and configure it as a trigger
         sphereCollider = GetComponent<SphereCollider>();
         sphereCollider.isTrigger = true;
+        _stats = GetComponent<TowerStats>();
     }
 
 
@@ -63,7 +56,7 @@ public class TowerShooter : MonoBehaviour
         {
             Shoot(target);
             // Reset cooldown based on fire rate (shots per second)
-            fireCooldown = 1f / fireRate;
+            fireCooldown = 1f / _stats.fireRate;
         }
     }
 
@@ -97,90 +90,20 @@ public class TowerShooter : MonoBehaviour
     private void Shoot(MonsterHealth target)
     {
         // If we don't have a prefab or fire point, we can't shoot
-        if (bulletPrefab == null || firePoint == null) return;
+        if (bulletPrefab == null || _stats.firePoint == null) return;
 
         // Create a new bullet at the fire point's position and rotation
-        GameObject bulletObj = Instantiate(bulletPrefab, firePoint.position, firePoint.rotation);
+        GameObject bulletObj = Instantiate(bulletPrefab, _stats.firePoint.position, _stats.firePoint.rotation);
 
         // Get the Bullet component from the instantiated object
         Bullet bullet = bulletObj.GetComponent<Bullet>();
         if (bullet != null)
         {
             // Initialize bullet with target, damage and speed
-            bullet.Init(target.transform, bulletDamage, bulletSpeed);
+            bullet.Init(target.transform, _stats.GetRandomDamage(), _stats.bulletSpeed);
         }
     }
 
-    // Called when another collider enters this tower's trigger collider
-    private void OnTriggerEnter(Collider other)
-    {
-        Debug.Log(other.tag);
-        // Check if the entering object has the "Enemy" tag
-        if (other.CompareTag("Monster"))
-        {
-            // Try to get the Enemy component from the collider
-            MonsterHealth enemy = other.GetComponent<MonsterHealth>();
-
-            // Add enemy to list if it exists and not already added
-            if (enemy != null && !enemiesInRange.Contains(enemy))
-            {
-                enemiesInRange.Add(enemy);
-            }
-        }
-    }
-
-    // Called when another collider exits this tower's trigger collider
-    private void OnTriggerExit(Collider other)
-    {
-        // Check if the exiting object has the "Enemy" tag
-        if (other.CompareTag("Monster"))
-        {
-            // Try to get the Enemy component from the collider
-            MonsterHealth enemy = other.GetComponent<MonsterHealth>();
-
-            // Remove enemy from list if it exists in the list
-            if (enemy != null && enemiesInRange.Contains(enemy))
-            {
-                enemiesInRange.Remove(enemy);
-            }
-        }
-    }
-
-    private void OnDrawGizmosSelected()
-    {
-        Gizmos.color = Color.red; // Color of the radius
-
-        DrawCircle(transform.position, range, 50);
-    }
-
-    // Draws a flat circle (XZ plane) using line segments
-    private void DrawCircle(Vector3 center, float radius, int segments)
-    {
-        float angleStep = 360f / segments;
-        Vector3 prevPoint = Vector3.zero;
-        Vector3 firstPoint = Vector3.zero;
-
-        for (int i = 0; i <= segments; i++)
-        {
-            float angle = Mathf.Deg2Rad * (i * angleStep);
-
-            // Create a point on the XZ circle
-            Vector3 point = new Vector3(
-                center.x + Mathf.Cos(angle) * radius,
-                center.y,
-                center.z + Mathf.Sin(angle) * radius
-            );
-
-            if (i > 0)
-                Gizmos.DrawLine(prevPoint, point);
-            else
-                firstPoint = point;
-
-            prevPoint = point;
-        }
-
-        // Close the circle
-        Gizmos.DrawLine(prevPoint, firstPoint);
-    }
+    
 
 }

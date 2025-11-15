@@ -10,7 +10,7 @@ public class Bullet : MonoBehaviour
     private Transform target;
 
     // The amount of damage this bullet will deal on hit
-    private float damage;
+    private int damage;
 
     // The speed of the bullet movement
     private float speed;
@@ -19,7 +19,7 @@ public class Bullet : MonoBehaviour
     [SerializeField] private float maxLifeTime = 5f;
 
     // Initialize the bullet with its target, damage and speed
-    public void Init(Transform target, float damage, float speed)
+    public void Init(Transform target, int damage, float speed)
     {
         this.target = target;   // Set the target to chase
         this.damage = damage;   // Set how much damage to deal
