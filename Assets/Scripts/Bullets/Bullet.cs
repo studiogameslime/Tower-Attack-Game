@@ -18,6 +18,7 @@ public class Bullet : MonoBehaviour
     // Safety timer so the bullet doesn't stay forever if something goes wrong
     [SerializeField] private float maxLifeTime = 5f;
 
+
     // Initialize the bullet with its target, damage and speed
     public void Init(Transform target, int damage, float speed)
     {
@@ -87,4 +88,5 @@ public class Bullet : MonoBehaviour
             HitTarget();
         }
     }
+
 }

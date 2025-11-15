@@ -146,7 +146,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: edef4eec664423a409d40d0fde2353c1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::MonsterStats
-  _maxHealth: 200
+  _maxHealth: 30
   _currenthealth: 0
   speed: 1
 --- !u!65 &-2167296782380962967
@@ -182,6 +182,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2d5c5b3321ac61943954ec0aac2e68cd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::MonsterHealth
+  animator: {fileID: 0}
+  agent: {fileID: 0}
 --- !u!54 &2615482865786436904
 Rigidbody:
   m_ObjectHideFlags: 0

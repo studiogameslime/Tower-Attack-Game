@@ -133,6 +133,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1de907ff01c110e4eb97aaadb6885b41, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::SquidleMove
+  target: {fileID: 0}
 --- !u!114 &-303241917444195014
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -145,7 +146,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: edef4eec664423a409d40d0fde2353c1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::EnemyStats
-  _maxHealth: 100
+  _maxHealth: 30
   _currenthealth: 0
   speed: 1
 --- !u!65 &8052595972698084360
@@ -181,6 +182,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2d5c5b3321ac61943954ec0aac2e68cd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::MonsterHealth
+  animator: {fileID: 0}
+  agent: {fileID: 0}
 --- !u!54 &8080052349291341043
 Rigidbody:
   m_ObjectHideFlags: 0

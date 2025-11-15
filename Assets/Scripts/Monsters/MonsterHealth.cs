@@ -1,28 +1,47 @@
 using UnityEngine;
+using UnityEngine.AI;
+using UnityEngine.InputSystem.Android;
+using System.Collections;
 
 public class MonsterHealth : MonoBehaviour
 {
     MonsterStats _stats;
+    public Animator animator;
+    public NavMeshAgent agent;
 
     private void Awake()
     {
         // Initialize current health when the monster is created
         _stats = GetComponent<MonsterStats>();
         _stats._currenthealth = _stats._maxHealth;
+        animator = GetComponent<Animator>();
+        agent = GetComponent<NavMeshAgent>();
     }
 
     // Public method to deal damage to this monster
     public void TakeDamage(int amount)
     {
         _stats._currenthealth -= amount; // Reduce health by damage amount
+
         
         // If health is zero or below, the monster dies
         if (_stats._currenthealth <= 0f)
         {
-            Die();
+            StartCoroutine(DieingMonster());
         }
-    }
+        else
+        {
+            animator.SetTrigger("getHit");
+        }
 
+    }
+    private IEnumerator DieingMonster()
+    {
+        agent.speed = 0;
+        animator.SetTrigger("Die");
+        yield return new WaitForSeconds(2f);
+        Die();
+    }
     // Handles monster death (destroy object, play animation, give rewards, etc.)
     private void Die()
     {
