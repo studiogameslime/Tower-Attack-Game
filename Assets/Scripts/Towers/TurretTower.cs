@@ -65,12 +65,12 @@ public class TurretTower : Tower
     {
         // If we don't have a prefab or fire point, we can't shoot
         if (bulletPrefab == null || _stats.firePoint == null) return;
-
+        PlayFireAnimation();
         // Create a new bullet at the fire point's position and rotation
         GameObject bulletObj = Instantiate(bulletPrefab, _stats.firePoint.position, _stats.firePoint.rotation);
 
         // Get the Bullet component from the instantiated object
-        Bullet bullet = bulletObj.GetComponent<Bullet>();
+        TurretBullet bullet = bulletObj.GetComponent<TurretBullet>();
         if (bullet != null)
         {
             // Initialize bullet with target, damage and speed

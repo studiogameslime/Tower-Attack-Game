@@ -5,6 +5,7 @@ public class Tower : MonoBehaviour
 {
     [HideInInspector] public List<MonsterHealth> enemiesInRange = new List<MonsterHealth>();
     [HideInInspector] public TowerStats _stats;
+    [SerializeField] private Animator animator;
 
 
     // Called when another collider enters this tower's trigger collider
@@ -43,8 +44,13 @@ public class Tower : MonoBehaviour
 
     private void OnDrawGizmosSelected()
     {
-        Gizmos.color = Color.red; // Color of the radius
+        if (_stats == null)
+        {
+            _stats = GetComponent<TowerStats>();
+            if (_stats == null) return;
+        }
 
+        Gizmos.color = Color.red;
         DrawCircle(transform.position, _stats.range, 50);
     }
 
@@ -103,5 +109,11 @@ public class Tower : MonoBehaviour
         }
 
         return closest; // Might be null if no enemies exist
+    }
+
+    public void PlayFireAnimation()
+    {
+        Debug.Log("animator", animator);
+        animator.SetTrigger("Fire");
     }
 }

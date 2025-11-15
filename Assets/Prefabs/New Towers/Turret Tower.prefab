@@ -275,7 +275,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::TowerShooter
   enemiesInRange: []
   _stats: {fileID: 0}
-  bulletPrefab: {fileID: 2067819216198474479, guid: 63ccf21809f58164ea501a982d2e9ca4, type: 3}
+  bulletPrefab: {fileID: 4703415125034965906, guid: 3ea65b9d0cca9a448b566615c6d79f9c, type: 3}
 --- !u!4 &957353178045209638 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: bf0f4fe0873b46e4db2a0b5fadbaeb6f, type: 3}

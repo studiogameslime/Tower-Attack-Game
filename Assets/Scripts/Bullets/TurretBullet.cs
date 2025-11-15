@@ -4,7 +4,7 @@ using UnityEngine;
 // - Move toward a specific target
 // - Deal damage when reaching the target
 // - Destroy itself after impact or after a max lifetime
-public class Bullet : MonoBehaviour
+public class TurretBullet : MonoBehaviour
 {
     // The target Transform the bullet will follow
     private Transform target;
