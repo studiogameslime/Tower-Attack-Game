@@ -10,6 +10,8 @@ public class MonsterHealth : MonoBehaviour
     public NavMeshAgent agent;
     [HideInInspector] public bool canTargeted = true; //Flag for targeting by towers
 
+    [SerializeField] MonstersHealthBar healthBar;
+
     private void Awake()
     {
         // Initialize current health when the monster is created
@@ -18,13 +20,14 @@ public class MonsterHealth : MonoBehaviour
         animator = GetComponent<Animator>();
         agent = GetComponent<NavMeshAgent>();
         canTargeted = true;
+        healthBar = GetComponentInChildren<MonstersHealthBar>();
     }
 
     // Public method to deal damage to this monster
     public void TakeDamage(int amount)
     {
         _stats._currenthealth -= amount; // Reduce health by damage amount
-
+        healthBar.UpdateHealthBar(_stats._currenthealth, _stats._maxHealth);
 
         // If health is zero or below, the monster dies
         if (_stats._currenthealth <= 0f)
@@ -36,6 +39,14 @@ public class MonsterHealth : MonoBehaviour
             animator.SetTrigger("getHit");
         }
 
+    }
+    private void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.Space))
+        {
+            _stats._currenthealth -= 10;
+            healthBar.UpdateHealthBar(_stats._currenthealth, _stats._maxHealth);
+        }
     }
     private IEnumerator DieingMonster()
     {
