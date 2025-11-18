@@ -2,8 +2,11 @@ using UnityEngine;
 
 public class MonstersSpawner : MonoBehaviour
 {
-    // Target that monsters should walk to (set in Inspector)
-    public Transform target;
+
+    public Transform GetPlayer()
+    {
+        return GameObject.FindGameObjectWithTag("Player").transform;
+    }
 
     // Spawns a single monster prefab at this spawn point
     public GameObject SpawnMonster(GameObject monsterPrefab)
@@ -16,9 +19,10 @@ public class MonstersSpawner : MonoBehaviour
 
         // Set its movement target if it has a MonsterMove component
         MonsterMove move = newMonster.GetComponent<MonsterMove>();
-        if (move != null && target != null)
+        Transform player = GetPlayer();
+        if (move != null)
         {
-            move.target = target;
+            move.target = player;
         }
 
         return newMonster;

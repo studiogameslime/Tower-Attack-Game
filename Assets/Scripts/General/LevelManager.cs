@@ -68,4 +68,6 @@ public class LevelManager : MonoBehaviour
         // Increase spawned count
         generatedMonstersCount++;
     }
+
+   
 }
