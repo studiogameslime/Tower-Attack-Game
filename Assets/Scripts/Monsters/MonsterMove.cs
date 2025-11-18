@@ -15,9 +15,9 @@ public class MonsterMove : MonoBehaviour
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        agent = GetComponent<NavMeshAgent>();
+       /* agent = GetComponent<NavMeshAgent>();
         agent.SetDestination(target.position);
-        agent.speed = _stats.speed;
+        agent.speed = _stats.speed;*/
     }
 
     // Update is called once per frame
