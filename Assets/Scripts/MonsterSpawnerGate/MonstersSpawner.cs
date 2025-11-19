@@ -2,9 +2,6 @@ using UnityEngine;
 
 public class MonstersSpawner : MonoBehaviour
 {
-
-   
-
     // Spawns a single monster prefab at this spawn point
     public GameObject SpawnMonster(GameObject monsterPrefab)
     {
