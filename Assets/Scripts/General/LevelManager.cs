@@ -3,6 +3,7 @@ using UnityEngine;
 
 public class LevelManager : MonoBehaviour
 {
+    public static LevelManager instance;
     // How many monsters should be spawned in this level
     public int monsterCountInLevel;
 
@@ -20,6 +21,13 @@ public class LevelManager : MonoBehaviour
 
     // Time (in seconds) between each spawn
     private float spawnInterval = 1f;
+
+    private Transform _player;
+
+    private void Awake()
+    {
+        instance = this;
+    }
 
     void Update()
     {
@@ -69,5 +77,14 @@ public class LevelManager : MonoBehaviour
         generatedMonstersCount++;
     }
 
-   
+    public Transform GetPlayer()
+    {
+        if (_player == null)
+        {
+            _player = GameObject.FindGameObjectWithTag("Player").transform;
+        }
+        return _player;
+    }
+
+
 }

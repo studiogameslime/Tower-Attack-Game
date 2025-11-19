@@ -3,10 +3,7 @@ using UnityEngine;
 public class MonstersSpawner : MonoBehaviour
 {
 
-    public Transform GetPlayer()
-    {
-        return GameObject.FindGameObjectWithTag("Player").transform;
-    }
+   
 
     // Spawns a single monster prefab at this spawn point
     public GameObject SpawnMonster(GameObject monsterPrefab)
@@ -19,7 +16,7 @@ public class MonstersSpawner : MonoBehaviour
 
         // Set its movement target if it has a MonsterMove component
         MonsterMove move = newMonster.GetComponent<MonsterMove>();
-        Transform player = GetPlayer();
+        Transform player = LevelManager.instance.GetPlayer();
         if (move != null)
         {
             move.target = player;
