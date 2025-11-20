@@ -3,24 +3,35 @@ using UnityEngine;
 public class BallSpawner : MonoBehaviour
 {
     public GameObject ballPrefab;
+    public PlayerStats playerStats; // ? ADD THIS
 
-
-    public void SpawnBallAtClosestEnemy()
+    void Start()
     {
-        // Find the nearest monster
+        // Auto-find PlayerStats on the same object if not assigned
+        if (playerStats == null)
+            playerStats = GetComponent<PlayerStats>();
+    }
+
+    public void SpawnBallAtClosestEnemy(int damage)
+    {
         Transform enemy = FindClosestEnemy();
 
         if (enemy != null)
         {
-            // Create the bullet at the player's position
+            // Read range from PlayerStats
+            float attackRange = playerStats.attackRange;
+
+            float dist = Vector3.Distance(transform.position, enemy.position);
+
+            if (dist > attackRange)
+                return;
+
             GameObject ball = Instantiate(ballPrefab, transform.position, Quaternion.identity);
 
-            // Send target to the bullet
             Bullet bullet = ball.GetComponent<Bullet>();
             if (bullet != null)
-                bullet.Init(enemy);
+                bullet.Init(enemy, damage);
 
-            // Remove gravity so bullet moves only by code
             Rigidbody rb = ball.GetComponent<Rigidbody>();
             if (rb != null)
                 rb.useGravity = false;

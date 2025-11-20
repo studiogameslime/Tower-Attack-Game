@@ -8,9 +8,10 @@ public class Bullet : MonoBehaviour
     private Transform _target;
 
     // Assign target when spawned
-    public void Init(Transform target)
+    public void Init(Transform target, int randomDamage)
     {
         _target = target;
+        damage = randomDamage;
     }
 
     void Update()
