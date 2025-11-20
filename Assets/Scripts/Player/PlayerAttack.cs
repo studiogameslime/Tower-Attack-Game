@@ -2,22 +2,26 @@ using UnityEngine;
 
 public class PlayerAttack : MonoBehaviour
 {
-
     public Animator animator;
+    public float attackCooldown = 2f;
+    public float nextAttackTime = 0f;
+
+    public BallSpawner ballSpawner;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        
+
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Space))
+        if (Time.time >= nextAttackTime)
         {
             animator.SetTrigger("Attack");
-
+            nextAttackTime = Time.time + attackCooldown;
+            ballSpawner.SpawnBallAtClosestEnemy();
         }
     }
 }
