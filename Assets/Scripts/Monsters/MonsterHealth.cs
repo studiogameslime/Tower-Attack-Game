@@ -24,7 +24,18 @@ public class MonsterHealth : MonoBehaviour
 
     private void Start()
     {
+        _healthBar = GetHealthBar();
+        if (!_healthBar)
+        {
+            return;
+        }
         _healthBar.UpdateHealthBar(_stats._maxHealth, _stats._currenthealth);
+    }
+
+
+    public MonstersHealthBar GetHealthBar()
+    {
+        return GetComponentInChildren<MonstersHealthBar>();
     }
 
     // Public method to deal damage to this monster
