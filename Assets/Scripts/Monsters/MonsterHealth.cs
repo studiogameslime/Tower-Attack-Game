@@ -42,11 +42,13 @@ public class MonsterHealth : MonoBehaviour
     public void TakeDamage(int amount)
     {
         _stats._currenthealth -= amount; // Reduce health by damage amount
+        _healthBar.UpdateHealthBar(_stats._maxHealth, _stats._currenthealth);
+        Debug.Log("monster get hit!: " + _stats._currenthealth);
 
         // If health is zero or below, the monster dies
         if (_stats._currenthealth <= 0f)
         {
-            StartCoroutine(DieingMonster());
+            StartCoroutine(DyingMonster());
         }
         else
         {
@@ -56,18 +58,14 @@ public class MonsterHealth : MonoBehaviour
     }
     private void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Space))
-        {
-            _stats._currenthealth -= 10;
-            _healthBar.UpdateHealthBar(_stats._maxHealth, _stats._currenthealth);
-        }
+
     }
-    private IEnumerator DieingMonster()
+    private IEnumerator DyingMonster()
     {
         canTargeted = false;
         agent.speed = 0;
         animator.SetTrigger("Die");
-        InGameCoinsManager.instance.AddCoins(_stats.coinReward);
+
         yield return new WaitForSeconds(2f);
         Die();
     }

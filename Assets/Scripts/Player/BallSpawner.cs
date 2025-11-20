@@ -3,7 +3,6 @@ using UnityEngine;
 public class BallSpawner : MonoBehaviour
 {
     public GameObject ballPrefab;
-    public float spawnForce = 10f;
 
     void Update()
     {
@@ -15,33 +14,23 @@ public class BallSpawner : MonoBehaviour
 
     void SpawnBallAtClosestEnemy()
     {
+        // Find the nearest monster
         Transform enemy = FindClosestEnemy();
+
         if (enemy != null)
         {
-            Vector3 direction = enemy.position - transform.position;
+            // Create the bullet at the player's position
+            GameObject ball = Instantiate(ballPrefab, transform.position, Quaternion.identity);
 
-            direction.y = 0;
+            // Send target to the bullet
+            Bullet bullet = ball.GetComponent<Bullet>();
+            if (bullet != null)
+                bullet.Init(enemy);
 
-            direction = direction.normalized;
-
-            SpawnBall(direction);
-        }
-        else
-        {
-            SpawnBall(transform.forward);
-        }
-
-    }
-
-    void SpawnBall(Vector3 direction)
-    {
-        GameObject ball = Instantiate(ballPrefab, transform.position, Quaternion.identity);
-
-        Rigidbody rb = ball.GetComponent<Rigidbody>();
-        if (rb != null)
-        {
-            rb.useGravity = false; 
-            rb.AddForce(direction * spawnForce, ForceMode.Impulse);
+            // Remove gravity so bullet moves only by code
+            Rigidbody rb = ball.GetComponent<Rigidbody>();
+            if (rb != null)
+                rb.useGravity = false;
         }
     }
 
@@ -52,6 +41,7 @@ public class BallSpawner : MonoBehaviour
         Transform closest = null;
         float minDist = Mathf.Infinity;
 
+        // Loop through all monsters and find the nearest
         foreach (GameObject enemy in enemies)
         {
             float dist = Vector3.Distance(transform.position, enemy.transform.position);
