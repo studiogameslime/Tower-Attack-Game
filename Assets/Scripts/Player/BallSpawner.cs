@@ -4,15 +4,8 @@ public class BallSpawner : MonoBehaviour
 {
     public GameObject ballPrefab;
 
-    void Update()
-    {
-        if (Input.GetKeyDown(KeyCode.Space))
-        {
-            SpawnBallAtClosestEnemy();
-        }
-    }
 
-    void SpawnBallAtClosestEnemy()
+    public void SpawnBallAtClosestEnemy()
     {
         // Find the nearest monster
         Transform enemy = FindClosestEnemy();
