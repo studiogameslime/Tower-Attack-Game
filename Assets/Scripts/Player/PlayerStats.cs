@@ -70,6 +70,7 @@ public class PlayerStats : MonoBehaviour
         PlayerPrefs.SetInt(AvailablePointsKey, _availablePoints);
         PlayerPrefs.Save();
         CalculateDamageRange();
+        CalculateHP();
     }
 
     /// <summary>
@@ -107,7 +108,7 @@ public class PlayerStats : MonoBehaviour
     /// <summary>
     /// לחיצה על Upgrade Damage
     /// </summary>
-    public void UpgradeUpgradeDamage()
+    public void UpgradeDamage()
     {
         if (_availablePoints <= 0)
             return;
@@ -120,7 +121,7 @@ public class PlayerStats : MonoBehaviour
     /// <summary>
     /// לחיצה על Upgrade HP
     /// </summary>
-    public void UpgradeUpgradeHP()
+    public void UpgradeHP()
     {
         if (_availablePoints <= 0)
             return;

@@ -43,7 +43,6 @@ public class MonsterHealth : MonoBehaviour
     {
         _stats._currenthealth -= amount; // Reduce health by damage amount
         _healthBar.UpdateHealthBar(_stats._maxHealth, _stats._currenthealth);
-        Debug.Log("monster get hit!: " + _stats._currenthealth);
 
         // If health is zero or below, the monster dies
         if (_stats._currenthealth <= 0f)

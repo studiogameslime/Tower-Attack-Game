@@ -6,7 +6,10 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
-    path: Assets/Scenes/new survivor.unity
+    path: Assets/Scenes/Home.unity
+    guid: 0301dbd9c777f2c49a90ca30c1a06603
+  - enabled: 1
+    path: Assets/Scenes/Levels/Chapter 1-1.unity
     guid: d6812ba5bdae9c64daafb0741348cc35
   m_configObjects:
     com.unity.input.settings.actions: {fileID: -944628639613478452, guid: 052faaac586de48259a63d0c4782560b, type: 3}
