@@ -7,12 +7,10 @@ public class PlayerAttack : MonoBehaviour
     public float nextAttackTime = 0f;
 
     public BallSpawner ballSpawner;
-    PlayerStats playerStats;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        playerStats = GetComponent<PlayerStats>();
     }
 
     // Update is called once per frame
@@ -20,9 +18,9 @@ public class PlayerAttack : MonoBehaviour
     {
         if (Time.time >= nextAttackTime)
         {
-            animator.SetTrigger("Attack");
             nextAttackTime = Time.time + attackCooldown;
-            ballSpawner.SpawnBallAtClosestEnemy(playerStats.GetRandomDamage());
+            int randomDamage = PlayerStats.Instance.GetRandomDamage();
+            ballSpawner.SpawnBallAtClosestEnemy(randomDamage, animator);
         }
     }
 }

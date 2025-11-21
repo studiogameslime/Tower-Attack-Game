@@ -3,23 +3,15 @@ using UnityEngine;
 public class BallSpawner : MonoBehaviour
 {
     public GameObject ballPrefab;
-    public PlayerStats playerStats; // ? ADD THIS
 
-    void Start()
-    {
-        // Auto-find PlayerStats on the same object if not assigned
-        if (playerStats == null)
-            playerStats = GetComponent<PlayerStats>();
-    }
-
-    public void SpawnBallAtClosestEnemy(int damage)
+    public void SpawnBallAtClosestEnemy(int damage, Animator playerAnimator)
     {
         Transform enemy = FindClosestEnemy();
 
         if (enemy != null)
         {
             // Read range from PlayerStats
-            float attackRange = playerStats.attackRange;
+            int attackRange = PlayerStats.Instance._calculatedAttackRange;
 
             float dist = Vector3.Distance(transform.position, enemy.position);
 
@@ -27,7 +19,7 @@ public class BallSpawner : MonoBehaviour
                 return;
 
             GameObject ball = Instantiate(ballPrefab, transform.position, Quaternion.identity);
-
+            playerAnimator.SetTrigger("Attack");
             Bullet bullet = ball.GetComponent<Bullet>();
             if (bullet != null)
                 bullet.Init(enemy, damage);
