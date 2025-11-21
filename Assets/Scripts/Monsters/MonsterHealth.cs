@@ -73,5 +73,6 @@ public class MonsterHealth : MonoBehaviour
     {
         // Here you can trigger animations, add score, spawn effects, etc.
         Destroy(gameObject); // Remove this monster from the scene
+        PlayerStats.Instance.AddLevelPoints(1);
     }
 }

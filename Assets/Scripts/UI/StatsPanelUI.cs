@@ -5,7 +5,8 @@ public class StatsPanelUI : MonoBehaviour
 {
     [SerializeField] private TextMeshProUGUI damageText;
     [SerializeField] private TextMeshProUGUI hpText;
-   // [SerializeField] private TextMeshProUGUI pointsText;
+    [SerializeField] private TextMeshProUGUI pointsText;
+
 
     private void OnEnable()
     {
@@ -25,7 +26,7 @@ public class StatsPanelUI : MonoBehaviour
 
         damageText.text = $"{PlayerStats.Instance._calculatedMinDamage}-{PlayerStats.Instance._calculatedMaxDamage}";
         hpText.text = $"{PlayerStats.Instance._calculatedHP}";
-       // pointsText.text = $"Points: {PlayerStats.Instance.AvailablePoints}";
+        pointsText.text = $"{PlayerStats.Instance.AvailablePoints}";
     }
 
     // לשים בפונקציית OnClick של כפתור Upgrade ליד הדמג'
